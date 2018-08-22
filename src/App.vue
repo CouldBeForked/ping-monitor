@@ -1,11 +1,11 @@
 <template>
   <v-app dark>
-    <v-toolbar dark dense>
+    <v-toolbar style="-webkit-app-region: drag;" dark fixed dense>
       <v-toolbar-title>AliveNotif</v-toolbar-title>
       
       <v-spacer></v-spacer>
       
-      <v-btn icon>
+      <v-btn icon @click="closeWindow()">
         <v-icon>close</v-icon>
       </v-btn>
     </v-toolbar>
@@ -48,6 +48,9 @@ export default {
   methods: {
     addRemote() {
       this.$router.push({ path: '/remote' })
+    },
+    closeWindow() {
+      win.close()
     }
   }
 }
