@@ -29,6 +29,7 @@ export const storeDefinition = {
   actions: {},
   mutations: {
     saveRemote: (state, remote) => {
+      remote._id = Date.now()
       state.remotesList.unshift(remote)
     },
     deleteRemote: (state, id) => {

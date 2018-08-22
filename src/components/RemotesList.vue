@@ -1,7 +1,9 @@
 <template>
   <v-list two-line v-if="allRemotes.length > 0">
     <v-subheader>Remotes List</v-subheader>
-    <hb-remote :remote="remoteItem" v-for="remoteItem in allRemotes" :key="remoteItem._id"></hb-remote>
+    <transition-group type="transition" name="list">
+      <hb-remote :remote="remoteItem" v-for="remoteItem in allRemotes" :key="remoteItem._id"></hb-remote>
+    </transition-group>
   </v-list>
   <v-card v-else>
     <v-card-text>Please add a remote.</v-card-text>
@@ -22,3 +24,20 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+.list-item {
+  transition: all 1s; 
+  display: block;
+}
+
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.list-leave-active {
+  position: absolute;
+}
+</style>
