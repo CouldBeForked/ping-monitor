@@ -1,6 +1,8 @@
 require('../node_modules/vuetify/src/stylus/app.styl')
 
 import Vue from 'vue'
+import VueRouter from 'vue-router'
+
 import {
   Vuetify,
   VApp,
@@ -17,6 +19,8 @@ import {
   VMenu,
   VSwitch
 } from 'vuetify'
+
+import { routes } from './routes'
 import App from './App.vue'
 
 Vue.use(Vuetify, {
@@ -46,7 +50,16 @@ Vue.use(Vuetify, {
   }
 })
 
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  routes,
+  mode: 'history'
+})
+
+
 new Vue({
   el: '#app',
-  render: h => h(App)
+  render: h => h(App),
+  router
 })

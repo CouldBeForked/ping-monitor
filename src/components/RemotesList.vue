@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import HbRemote from './Remote.vue';
+import HbRemote from './Remote.vue'
 
 export default {
   components: {
