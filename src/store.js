@@ -29,8 +29,17 @@ export const storeDefinition = {
   actions: {},
   mutations: {
     saveRemote: (state, remote) => {
-      remote._id = Date.now()
-      state.remotesList.unshift(remote)
+      let index = state.remotesList.findIndex(({_id}) => _id === remote._id)
+      
+      remote.uri = !remote.uri.startsWith('http://') ? 
+        `http://${remote.uri}` : remote.uri;
+
+      if (index >= 0) {
+        state.remotesList[index] = remote
+      } else {
+        remote._id = Date.now()
+        state.remotesList.unshift(remote)
+      }
     },
     deleteRemote: (state, id) => {
       let index = state.remotesList.findIndex(({_id}) => _id === id)

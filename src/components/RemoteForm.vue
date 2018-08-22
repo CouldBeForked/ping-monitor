@@ -6,9 +6,9 @@
         <v-card-title>Remote</v-card-title>
         
         <v-card-text>
-          <v-text-field v-model="remote.alias" suffix=" " autofocus prepend-icon="visibility" label="Alias"></v-text-field>
-          <v-text-field v-model="remote.uri" prefix="http://" suffix=" " prepend-icon="cloud"></v-text-field>
-          <v-text-field v-model="remote.interval" suffix="s" prepend-icon="timer" label="Interval"></v-text-field>
+          <v-text-field prepend-icon="visibility" label="Alias" suffix=" " v-model="remote.alias" autofocus></v-text-field>
+          <v-text-field prepend-icon="cloud" prefix="http://" suffix=" " :value="remote.uri | hideProtocol" @input="value => { remote.uri = value }"></v-text-field>
+          <v-text-field prepend-icon="timer" label="Interval" suffix="s" v-model="remote.interval"></v-text-field>
         </v-card-text>
 
         <v-card-actions>
@@ -35,11 +35,10 @@ export default {
   },
   created() {
     this.loading = false
-    
     let id = this.$route.params.id
     
     if (id) {
-      this.remote = this.$store.getters.remote(id)
+      this.remote = { ...this.$store.getters.remote(id) }
     }
   },
   methods: {
@@ -49,6 +48,11 @@ export default {
     save() {
       this.$store.commit('saveRemote', this.remote)
       this.$router.push({ path: '/' })
+    }
+  },
+  filters: {
+    hideProtocol(value = '') {
+      return value.replace('http://', '')
     }
   }
 }
