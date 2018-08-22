@@ -17,7 +17,10 @@ import {
   VSubheader,
   VAvatar,
   VMenu,
-  VSwitch
+  VSwitch,
+  VCard,
+  VTextField,
+  VProgressLinear
 } from 'vuetify'
 
 import { routes } from './routes'
@@ -37,7 +40,10 @@ Vue.use(Vuetify, {
     VSubheader,
     VAvatar,
     VMenu,
-    VSwitch
+    VSwitch,
+    VCard,
+    VTextField,
+    VProgressLinear
   },
   theme: {
     primary: '#ee44aa',
