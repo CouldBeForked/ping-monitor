@@ -11,7 +11,11 @@ import {
   VIcon,
   VGrid,
   VToolbar,
-  transitions
+  transitions,
+  VSubheader,
+  VAvatar,
+  VMenu,
+  VSwitch
 } from 'vuetify'
 import App from './App.vue'
 
@@ -25,7 +29,11 @@ Vue.use(Vuetify, {
     VIcon,
     VGrid,
     VToolbar,
-    transitions
+    transitions,
+    VSubheader,
+    VAvatar,
+    VMenu,
+    VSwitch
   },
   theme: {
     primary: '#ee44aa',
