@@ -2,6 +2,7 @@ require('../node_modules/vuetify/src/stylus/app.styl')
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
 
 import {
   Vuetify,
@@ -25,6 +26,7 @@ import {
 
 import { routes } from './routes'
 import App from './App.vue'
+import { storeDefinition } from './store'
 
 Vue.use(Vuetify, {
   components: {
@@ -57,15 +59,18 @@ Vue.use(Vuetify, {
 })
 
 Vue.use(VueRouter)
+Vue.use(Vuex)
 
 const router = new VueRouter({
   routes,
   mode: 'history'
 })
 
+const store = new Vuex.Store(storeDefinition)
 
 new Vue({
   el: '#app',
   render: h => h(App),
-  router
+  router,
+  store
 })

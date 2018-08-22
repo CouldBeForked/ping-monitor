@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <v-toolbar dark dense>
-      <v-toolbar-title>Alivenotif</v-toolbar-title>
+      <v-toolbar-title>AliveNotif</v-toolbar-title>
       
       <v-spacer></v-spacer>
       
@@ -24,7 +24,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn fab top right absolute class="accent">
+      <v-btn fab top right absolute class="accent" @click="addRemote">
         <v-icon>add</v-icon>
       </v-btn>
     </v-footer>
@@ -41,6 +41,11 @@ export default {
   data () {
     return {
 
+    }
+  },
+  methods: {
+    addRemote() {
+      this.$router.push({ path: '/remote' })
     }
   }
 }
