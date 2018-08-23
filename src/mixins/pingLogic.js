@@ -9,8 +9,10 @@ export default {
       })
     
       this.monitor.on('up', (res) => {
-        console.log(`${this.remote.alias} is up!`)
         this.currentStatus = 'online'
+        const notification = notification || new Notification(`${this.remote.alias} is up!`, {
+          body: '\n \n This site is alive.'
+        })
       })
   
       this.monitor.on('error', err => {
