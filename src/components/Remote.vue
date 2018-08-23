@@ -14,7 +14,7 @@
 
     <v-list-tile-action>
       <v-layout>
-        <v-switch></v-switch>
+        <v-switch color="primary" @change="toggleMonitor" v-model="remote.monitoring"></v-switch>
         <v-menu>
         <v-btn slot="activator" class="m1-2" icon>
           <v-icon>more_vert</v-icon>
@@ -60,6 +60,14 @@ export default {
     },
     edit(id) {
       this.$router.push('remote/' + id)
+    },
+    toggleMonitor() {
+      if (this.remote.monitoring) {
+        this.createMonitor()
+      } else {
+        this.currentStatus = '-'
+        this.destroyMonitor()
+      }
     }
   },
   computed: {

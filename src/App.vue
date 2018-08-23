@@ -13,7 +13,9 @@
     <main class="scroll-container">
       <v-container class="pa-0" fluid>
         <v-slide-y-transition mode="out-in">
-          <router-view></router-view>
+          <keep-alive include="theList">
+            <router-view></router-view>
+          </keep-alive>
         </v-slide-y-transition>
       </v-container>
     </main>

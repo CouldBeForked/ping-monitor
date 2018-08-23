@@ -54,6 +54,7 @@ export default {
     hideProtocol(value = '') {
       return value.replace('http://', '')
     }
-  }
+  },
+  name: 'theForm'
 }
 </script>

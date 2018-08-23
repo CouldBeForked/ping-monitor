@@ -21,7 +21,8 @@ export default {
   computed: {
     // mix the getter(s) into computed with object spread
     ...mapGetters(['allRemotes'])
-  }
+  },
+  name: 'theList'
 }
 </script>
 
