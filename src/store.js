@@ -1,3 +1,26 @@
+const Datastore = require('nedb')
+const path = require('path')
+
+const db = {}
+const filePaths = {
+  dbPath: path.join(nw.App.dataPath, 'remotes.db')
+}
+
+db.remotes = new Datastore({
+  filename: filePaths.dbPath,
+  autoload: true,
+  onload: err => {
+    if (err) {
+      console.error('error', err)
+    }
+
+    db.remotes.find({}, (err, result) => {
+      storeDefinition.state.remotesList = result
+    })
+  },
+  timestampData: true
+})
+
 export const storeDefinition = {
   state: {
     remotesList: [{ 
