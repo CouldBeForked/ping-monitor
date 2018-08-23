@@ -47,13 +47,11 @@ export const storeDefinition = {
           resolve()
         }
 
+        remote.uri = !remote.uri.startsWith('http://') ? 
+        `http://${remote.uri}` : remote.uri
+
         if (remote._id) {
-          db.remotes.update(
-            {_id: remote._id}, 
-            remote, 
-            {returnUpdatedDocs: true}, 
-            callback
-          )
+          db.remotes.update({_id: remote._id}, remote, {returnUpdatedDocs: true}, callback)
         } else {
           db.remotes.insert(remote, callback)
         }
@@ -66,6 +64,7 @@ export const storeDefinition = {
             console.error(err)
             reject(err)
           }
+
           commit('deleteRemote', _id)
           resolve()
         })
@@ -75,9 +74,6 @@ export const storeDefinition = {
   mutations: {
     saveRemote: (state, remote) => {
       let index = state.remotesList.findIndex(({_id}) => _id === remote._id)
-      
-      remote.uri = !remote.uri.startsWith('http://') ? 
-        `http://${remote.uri}` : remote.uri;
 
       if (index >= 0) {
         state.remotesList.splice(index, 1, remote)

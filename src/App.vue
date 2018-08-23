@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <v-toolbar style="-webkit-app-region: drag;" dark dense>
-      <v-toolbar-title>AliveNotif</v-toolbar-title>
+      <v-toolbar-title>Ping Monitor</v-toolbar-title>
 
       <v-spacer></v-spacer>
       
