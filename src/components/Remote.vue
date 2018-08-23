@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     removeRemote(id) {
-      this.$store.commit('deleteRemote', id)
+      this.$store.dispatch('removeRemote', id)
     },
     edit(id) {
       this.$router.push('remote/' + id)
