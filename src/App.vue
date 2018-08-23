@@ -35,7 +35,19 @@
 <script>
 import HbRemotesList from './components/RemotesList.vue'
 
+let Monitor = rquire('ping-monitor')
+
 export default {
+  created() {
+    let myMonitor = new Monitor({
+      website: 'http://localhost:9000/health',
+      interval: 5 / 60
+    })
+
+    myMonitor.on('up', function(res){
+      console.log(res)
+    })
+  },
   components: {
     HbRemotesList
   },
