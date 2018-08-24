@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-progress-linear v-if="loading" :indeterminate="true"></v-progress-linear>
+    <v-progress-linear color="blue-grey darken-1" v-if="loading" :indeterminate="true"></v-progress-linear>
     <form @keyup.enter="save" v-if="!loading">
       <v-card class="elevation-0 pa-2">
         <v-card-text>

@@ -14,7 +14,7 @@
 
     <v-list-tile-action>
       <v-layout>
-        <v-switch color="primary" @change="toggleMonitor" v-model="remote.monitoring"></v-switch>
+        <v-switch color="blue-grey darken-1" @change="toggleMonitor" v-model="remote.monitoring"></v-switch>
         <v-menu>
         <v-btn slot="activator" class="m1-2" icon>
           <v-icon>more_vert</v-icon>
@@ -76,14 +76,14 @@ export default {
       let classes = []
 
       if (!this.currentStatus || this.currentStatus === '-') {
-        name = 'report_problem'
+        name = 'pause'
         classes = ['grey', 'lighten-2']
       } else {
         if (this.currentStatus === 'online') {
-          name = 'swap_vert'
+          name = 'done'
           classes = ['light-green', 'darken-1']
         } else if (this.currentStatus === 'offline') {
-          name = 'not_interested'
+          name = 'clear'
           classes = ['red', 'darksen-1']
         }
       }

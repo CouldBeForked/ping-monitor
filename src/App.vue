@@ -15,7 +15,7 @@
     </v-toolbar>
 
     <main class="scroll-container">
-      <v-container class="pa-0 mt-5" fluid>
+      <v-container class="pa-0 mt-5 mb-4" fluid>
         <v-slide-y-transition mode="out-in">
           <keep-alive include="theList">
             <router-view></router-view>
