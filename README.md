@@ -14,6 +14,5 @@
 ![Notifications](https://i.imgur.com/cuZBLYi.png)
 
 ## TODO
-
-> refactor
-> implement the node-notifier module
+* refactor
+* implement the node-notifier module
