@@ -1,29 +1,19 @@
-# ping-monitor
+# Ping Monitor
 
-> A Vue.js project
+> Notifies user if their monitor is either online of offline through notifications
 
-## Build Setup
+## Layout
 
-``` bash
-# install dependencies
-npm install
+### Main page
+![Main page](https://i.imgur.com/Mg1FfBr.png)
 
-# serve with hot reload at localhost:8080
-npm run dev
+### Edit page
+![Edit page](https://i.imgur.com/G2L8Jxh.png)
 
-# build for production with minification
-npm run build
-```
+### Notifications
+![Notifications](https://i.imgur.com/cuZBLYi.png)
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## TODO
 
-> TODO
-``` 
-add node-notifier module
-
-change up the styling
-
-add minimize button
-
-refactor
-```
+> refactor
+> implement the node-notifier module
