@@ -1,12 +1,11 @@
 <template>
   <v-list two-line v-if="allRemotes.length > 0">
-    <v-subheader>Remotes List</v-subheader>
     <transition-group type="transition" name="list">
       <hb-remote :remote="remoteItem" v-for="remoteItem in allRemotes" :key="remoteItem._id"></hb-remote>
     </transition-group>
   </v-list>
   <v-card v-else>
-    <v-card-text>Please add a remote.</v-card-text>
+    <v-card-text>Please add a ping monitor.</v-card-text>
   </v-card>
 </template>
 

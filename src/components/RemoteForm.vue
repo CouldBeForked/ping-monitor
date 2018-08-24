@@ -3,18 +3,16 @@
     <v-progress-linear v-if="loading" :indeterminate="true"></v-progress-linear>
     <form @keyup.enter="save" v-if="!loading">
       <v-card class="elevation-0 pa-2">
-        <v-card-title>Remote</v-card-title>
-        
         <v-card-text>
-          <v-text-field prepend-icon="visibility" label="Alias" suffix=" " v-model="remote.alias" autofocus></v-text-field>
-          <v-text-field prepend-icon="cloud" prefix="http://" suffix=" " :value="remote.uri | hideProtocol" @input="value => { remote.uri = value }"></v-text-field>
-          <v-text-field prepend-icon="timer" label="Interval" suffix="s" v-model="remote.interval"></v-text-field>
+          <v-text-field color="blue-grey lighten-2" prepend-icon="visibility" label="Name" suffix=" " v-model="remote.alias" autofocus></v-text-field>
+          <v-text-field color="blue-grey lighten-2" prepend-icon="cloud" label="http://" :value="remote.uri | hideProtocol" @input="value => { remote.uri = value }"></v-text-field>
+          <v-text-field color="blue-grey lighten-2" prepend-icon="timer" label="Interval" suffix="s" v-model="remote.interval"></v-text-field>
         </v-card-text>
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn flat @click="cancel">Cancel</v-btn>
-          <v-btn class="secondary" @click="save">Save</v-btn>
+          <v-btn class="blue-grey darken-2" @click="cancel">Cancel</v-btn>
+          <v-btn class="blue-grey darken-2" @click="save">Save</v-btn>
         </v-card-actions>
       </v-card>
     </form>
