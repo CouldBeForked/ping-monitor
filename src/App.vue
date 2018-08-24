@@ -1,9 +1,13 @@
 <template>
   <v-app dark>
-    <v-toolbar style="-webkit-app-region: drag;" dark dense>
+    <v-toolbar style="-webkit-app-region: drag;" dark dense fixed>
       <v-toolbar-title>Ping Monitor</v-toolbar-title>
 
       <v-spacer></v-spacer>
+
+      <v-btn style="-webkit-app-region: no-drag;" icon @click="minimizeWindow()">
+        <v-icon>minimize</v-icon>
+      </v-btn>
       
       <v-btn style="-webkit-app-region: no-drag;" icon @click="closeWindow()">
         <v-icon>close</v-icon>
@@ -11,7 +15,7 @@
     </v-toolbar>
 
     <main class="scroll-container">
-      <v-container class="pa-0" fluid>
+      <v-container class="pa-0 mt-5" fluid>
         <v-slide-y-transition mode="out-in">
           <keep-alive include="theList">
             <router-view></router-view>
@@ -21,13 +25,7 @@
     </main>
 
     <v-footer :fixed="true">
-      <v-btn icon>
-        <v-icon class="grey--text text-darken-3">settings</v-icon>
-      </v-btn>
-
-      <v-spacer></v-spacer>
-
-      <v-btn fab top right absolute class="accent" @click="addRemote">
+      <v-btn fab top left absolute class="blue-grey darken-3" @click="addRemote">
         <v-icon>add</v-icon>
       </v-btn>
     </v-footer>
@@ -53,6 +51,10 @@ export default {
     closeWindow() {
       let win = nw.Window.get()
       win.close()
+    },
+    minimizeWindow() {
+      let win = nw.Window.get()
+      win.minimize()
     }
   }
 }
