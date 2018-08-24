@@ -1,4 +1,4 @@
-# alive-notification
+# ping-monitor
 
 > A Vue.js project
 
@@ -24,4 +24,6 @@ add node-notifier module
 change up the styling
 
 add minimize button
+
+refactor
 ```
